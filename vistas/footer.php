@@ -6,6 +6,8 @@
     </footer>    
     <!-- jQuery 2.1.4 -->
     <script src="../public/js/jquery-3.1.1.min.js"></script>
+    <!-- bootbox -->
+    <script src="../public/js/bootbox.min.js"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="../public/js/bootstrap.min.js"></script>
     <!-- AdminLTE App -->

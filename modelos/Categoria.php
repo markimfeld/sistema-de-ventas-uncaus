@@ -28,7 +28,7 @@ Class Categoria {
     return ejecutarConsulta($query);
   }
 
-  public function activar() {
+  public function activar($idcategoria) {
     $query = "UPDATE categoria SET condicion='1' WHERE idcategoria='$idcategoria'";
     return ejecutarConsulta($query);
   }
