@@ -3,6 +3,10 @@ var tabla;
 function init() {
   mostrarform(false);
   listar();
+
+    $('#formulario').on("submit", function(e){
+        guardaryeditar(e);
+    })
 }
 
 function limpiar() {
@@ -25,7 +29,7 @@ function mostrarform(flag) {
 
 function cancelarform() {
   limpiar();
-  mostrarForm(false);
+  mostrarform(false);
 }
 
 function listar() {
@@ -53,9 +57,45 @@ function listar() {
   }).DataTable();
 }
 
-function guardaryeditar() {
+function guardaryeditar(e) {
+
+    e.preventDefault();
+    //$('#btnGuardar').prop('disabled', true);
+
+    const formData = new FormData($('#formulario')[0]);
+
+    $.ajax({
+        url: "../ajax/categoria.php?op=guardaryeditar",
+        type: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+
+        success: function(datos) {
+            bootbox.alert(datos);
+            mostrarform(false);
+            tabla.ajax.reload();
+        }
+    });
+    limpiar();
+    
 }
 
+function mostrar(idcategoria) {
+
+    $.post("../ajax/categoria.php?op=mostrar", {idcategoria: idcategoria}, function(data) {
+
+        console.log(data);
+
+        data = JSON.parse(data);
+
+        mostrarform(true);
+
+        $('#nombre').val(data.nombre);
+        $('#descripcion').val(data.descripcion);
+        $('#idcategoria').val(data.idcategoria);
+    })
+}
 
 function desactivar(idcategoria) {
   bootbox.confirm("¿Está seguro de desactivar la Categoría?", function(result) {
@@ -79,6 +119,7 @@ function activar(idcategoria) {
     }
   });
 }
+
 
 
 init();

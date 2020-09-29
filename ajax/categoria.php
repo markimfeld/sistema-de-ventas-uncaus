@@ -11,6 +11,7 @@ $nombre = isset($_POST["nombre"]) ? limpiarCadena($_POST["nombre"]) : "";
 $descripcion = isset($_POST["descripcion"]) ? limpiarCadena($_POST["descripcion"]) : "";
 
 
+
 switch($_GET["op"]) {
   case 'guardaryeditar':
     if(empty($idcategoria)) {
