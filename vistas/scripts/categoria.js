@@ -21,9 +21,11 @@ function mostrarform(flag) {
     $("#listadoregistros").hide();
     $("#formularioregistros").show();
     $("#btnguardar").prop("disabled", false);
+    $("#btnAgregar").hide();
   } else {
     $("#listadoregistros").show();
     $("#formularioregistros").hide();
+    $("#btnAgregar").show();
   }
 }
 
@@ -84,8 +86,6 @@ function guardaryeditar(e) {
 function mostrar(idcategoria) {
 
     $.post("../ajax/categoria.php?op=mostrar", {idcategoria: idcategoria}, function(data) {
-
-        console.log(data);
 
         data = JSON.parse(data);
 

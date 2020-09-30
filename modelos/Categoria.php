@@ -18,7 +18,7 @@ Class Categoria {
   }
   // editar 
   public function editar($idcategoria, $nombre, $descripcion) {
-    $query = "UPDATE categoria SET nombre='$nombre', descripcion='$descripcion', 
+    $query = "UPDATE categoria SET nombre='$nombre', descripcion='$descripcion' 
                 WHERE idcategoria='$idcategoria'";
     return ejecutarConsulta($query);
   }
@@ -35,7 +35,7 @@ Class Categoria {
 
   public function mostrar($idcategoria) {
     $query = "SELECT * FROM categoria WHERE idcategoria='$idcategoria'";
-    return ejecutarConsultaSimpleFila($sql);
+    return ejecutarConsultaSimpleFila($query);
   }
 
   public function listar() {
