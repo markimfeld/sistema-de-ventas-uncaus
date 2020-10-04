@@ -38,7 +38,7 @@
                     <form name="formulario" id="formulario" method="post">
                         <div class="form-group col col-sm-6">
                             <label for="nombre">Nombre:</label>
-                            <input id="idcategoria" type="hidden" id="idcategoria" name="idcategoria">
+                            <input id="idcategoria" type="hidden" name="idcategoria">
                             <input id="nombre" class="form-control" name="nombre" type="text" maxlength="50" placeholder="Nombre" required>
                         </div>
                         <div class="form-group col col-sm-6">
